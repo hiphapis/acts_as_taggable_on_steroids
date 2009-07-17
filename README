@@ -104,6 +104,26 @@ CSS:
   .css3 { font-size: 1.4em; }
   .css4 { font-size: 1.6em; }
 
+==== Simple View with Link
+
+<a href="TAG_PATH#1">TAG_NAME#1</a>, <a href="TAG_PATH#2">TAG_NAME#2</a>
+
+if you want change tag_path then modify TagHelper::link_to_tag
+default path is 
+  { :action => :tag, :id => tag_name }
+
+Controller:
+
+  class PostController < ApplicationController
+    def show
+      @post = Post.find(params[:id])
+    end
+  end
+
+View:
+
+  <%= link_to_tags(@post.tags) %>
+
 === Caching
 
 It is useful to cache the list of tags to reduce the number of queries executed. To do this,
