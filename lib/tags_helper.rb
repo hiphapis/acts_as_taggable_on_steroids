@@ -17,7 +17,7 @@ module TagsHelper
 	end
 
 	def link_to_tags(tags, options = {})
-		delimiter = options[:delimiter] || ", "
+		delimiter = options[:delimiter] || TagList.delimiter + " "
 		tags.collect { |tag| link_to_tag(tag.name, options) }.join(delimiter)
 	end
 end
